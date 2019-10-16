@@ -48,25 +48,6 @@ function onEnterDirective(path) {
 	path.parentPath.traverse({ BinaryExpression: onEnterBinaryExpression });
 }
 
-function transpileSource(sourceString) {
-	const ast = parser.parse(sourceString, { sourceType: "module" });
-
-	traverse(ast, {
-		Directive: onEnterDirective
-	});
-
-	return ast;
-}
-
-function transpile(fileName) {
-	fs.readFile(fileName, (err, data) => {
-		const source = data.toString();
-		const ast = transpileSource(source);
-		const { code } = generate(ast, {}, source);
-		console.log(code);
-	});
-}
-
 export default declare((api, options, dirname) => {
 	api.assertVersion(7);
 
