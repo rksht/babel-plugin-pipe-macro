@@ -1,0 +1,21 @@
+{
+  "name": "babel-plugin-pipe-macro",
+  "version": "1.0.0",
+  "main": "dist.js",
+  "author": "rksht",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/generator": "^7.6.4",
+    "@babel/parser": "^7.6.4",
+    "@babel/types": "^7.6.3"
+  },
+  "dependencies": {
+    "@babel/helper-plugin-utils": "^7.0.0"
+  },
+  "scripts": {
+    "build": "babel index.js -o dist.js"
+  }
+}
