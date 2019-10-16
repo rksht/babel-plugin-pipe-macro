@@ -1,14 +1,23 @@
 ## babel-plugin-pipe-macro
 
-Use right shift operator like the pipe operator in Elixir.
+Use right shift operator like the pipe operator in Elixir. For now, the right hand side of the >> operator should be a function call.
 
 ## Usage
 
-Put this in `.babelrc`
+Install
+
+```
+yarn add babel-plugin-pipe-macro
+
+```
+
+Put this in `.babelrc` along with other plugins
 
 ```
 "plugins": ["babel-plugin-pipe-macro"]
 ```
+
+and run babel on your sources.
 
 ## Example
 
@@ -34,10 +43,11 @@ function numberRange({ start, end }) {
 	return out;
 }
 
+// Create a range of numbers from 1 to 99, extract those that are divisble by 2. Then print with console.log.
+
 ({ start: 1, end: 100 })
 	>> numberRange()
 	>> filter(n => n % 2 == 0)
 	>> console.log();
-
 
 ```
